@@ -1,0 +1,38 @@
+.container {
+  margin: 1rem;
+}
+
+.container * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+.card__image {
+  // max-width: 100%;
+  // display: block;
+  // object-fit: cover;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card h4 {
+  font-size: 1.5rem;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+}
