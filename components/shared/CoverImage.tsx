@@ -10,10 +10,12 @@ const CoverImage: FC<ICardCover> = ({ image }) => (
   <Image
     src={
       image.url ||
-      'https://placehold.jp/3d4070/ffffff/600x400.png?text=No%20Photo'
+      'https://placehold.jp/3d4070/ffffff/1920x1179.png?text=No%20Photo'
     }
-    alt='card__image'
-    style={{ maxWidth: '100%', display: 'block', objectFit: 'cover' }}
+    alt="card__image"
+    style={{ maxWidth: '100%', display: 'block', objectFit: 'contain' }}
+    // fill
+
     height={image.height || 1179}
     width={image.width || 1920}
   />

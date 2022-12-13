@@ -1,12 +1,12 @@
-import Head from 'next/head';
-import Image from 'next/image';
+import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
-import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
-    <div>
-      <Link href={'/artciles'}>記事一覧</Link>
-    </div>
+    <Layout>
+      <div>
+        <Link href={'/articles'}>記事一覧</Link>
+      </div>
+    </Layout>
   );
 }
