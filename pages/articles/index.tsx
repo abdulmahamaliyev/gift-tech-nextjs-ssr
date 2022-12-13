@@ -1,35 +1,57 @@
 import ArticleCard from '@/components/cards/article/ArticleCard';
-import { Articles } from '@/types';
+import Articles from '@/components/modules/articles/Articles';
+import { Articles as IArticles } from '@/types';
 import { GetServerSideProps, NextPage } from 'next';
+import { useRouter } from 'next/router';
+import ReactPaginate from 'react-paginate';
 
 const Index: NextPage<PageProps> = ({ articles }) => {
   console.log(articles);
+  const router = useRouter();
+
   return (
-    <div>
-      記事一覧
-      {articles.contents?.map((article) => (
-        <ArticleCard key={article.id} article={article} />
-      ))}
-    </div>
+    <>
+      <Articles articles={articles} />
+      <ReactPaginate
+        breakLabel='...'
+        nextLabel='>'
+        onPageChange={(event) => {
+          router.push(
+            {
+              query: { ...router.query, page: event.selected + 1 || 1 },
+            },
+            undefined,
+            { shallow: false }
+          );
+        }}
+        pageRangeDisplayed={5}
+        pageCount={Math.ceil(articles.totalCount / articles.limit)}
+        previousLabel='<'
+        renderOnZeroPageCount={null}
+      />
+    </>
   );
 };
 
 export default Index;
 
 interface PageProps {
-  articles: Articles;
+  articles: IArticles;
 }
 
 export const getServerSideProps: GetServerSideProps<PageProps> =
   async function getServerSideProps(ctx) {
-    const res = await fetch(process.env.API_URL!, {
+    const { page } = ctx.query;
+
+    const offset = (+page! - 1) * 10;
+    const res = await fetch(`${process.env.API_URL!}?offset=${offset}`, {
       method: 'GET',
       headers: {
         'X-MICROCMS-API-KEY': process.env.API_KEY!,
       },
     });
 
-    const data: Articles = await res.json();
+    const data: IArticles = await res.json();
 
     return {
       props: {
