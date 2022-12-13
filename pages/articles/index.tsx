@@ -13,8 +13,8 @@ const Index: NextPage<PageProps> = ({ articles }) => {
     <>
       <Articles articles={articles} />
       <ReactPaginate
-        breakLabel='...'
-        nextLabel='>'
+        breakLabel="..."
+        nextLabel=">"
         onPageChange={(event) => {
           router.push(
             {
@@ -26,7 +26,7 @@ const Index: NextPage<PageProps> = ({ articles }) => {
         }}
         pageRangeDisplayed={5}
         pageCount={Math.ceil(articles.totalCount / articles.limit)}
-        previousLabel='<'
+        previousLabel="<"
         renderOnZeroPageCount={null}
       />
     </>
