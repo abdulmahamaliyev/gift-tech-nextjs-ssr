@@ -1,9 +1,17 @@
+import ArticleCard from '@/components/cards/article/ArticleCard';
 import { Articles } from '@/types';
 import { GetServerSideProps, NextPage } from 'next';
 
 const Index: NextPage<PageProps> = ({ articles }) => {
   console.log(articles);
-  return <div>TEST</div>;
+  return (
+    <div>
+      記事一覧
+      {articles.contents?.map((article) => (
+        <ArticleCard key={article.id} article={article} />
+      ))}
+    </div>
+  );
 };
 
 export default Index;
