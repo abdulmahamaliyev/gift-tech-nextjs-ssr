@@ -6,29 +6,9 @@ import { useRouter } from 'next/router';
 import ReactPaginate from 'react-paginate';
 
 const Index: NextPage<PageProps> = ({ articles }) => {
-  console.log(articles);
-  const router = useRouter();
-
   return (
     <>
       <Articles articles={articles} />
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel=">"
-        onPageChange={(event) => {
-          router.push(
-            {
-              query: { ...router.query, page: event.selected + 1 || 1 },
-            },
-            undefined,
-            { shallow: false }
-          );
-        }}
-        pageRangeDisplayed={5}
-        pageCount={Math.ceil(articles.totalCount / articles.limit)}
-        previousLabel="<"
-        renderOnZeroPageCount={null}
-      />
     </>
   );
 };

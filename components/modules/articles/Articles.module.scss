@@ -7,6 +7,17 @@
     font-weight: 400;
     text-align: center;
   }
+  .pagination {
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .pageLinkClassName {
+    margin: 0.5rem;
+  }
+
   img {
     height: auto;
     max-width: 100%;
