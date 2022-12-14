@@ -13,20 +13,18 @@ const ArticleCard = ({ article }: Props) => {
 
   return (
     <div className={styles.card}>
-      <div className={styles.card}>
-        <div className={styles.card__image}>
-          <CoverImage image={article.image} />
-        </div>
-        <div
-          className={styles.card__body}
-          onClick={() => router.push(`/articles/${article.id}`)}
-        >
-          <h4>{truncate(article.title, 50)}</h4>
-          <div>{truncate(article.description, 140)}</div>
-        </div>
-        <div className={styles.card__footer}>
-          {new Date(article.createdAt).toLocaleDateString()}
-        </div>
+      <div className={styles.card__image}>
+        <CoverImage image={article.image} />
+      </div>
+      <div
+        className={styles.card__body}
+        onClick={() => router.push(`/articles/${article.id}`)}
+      >
+        <h4>{truncate(article.title, 50)}</h4>
+        <div>{truncate(article.description, 140)}</div>
+      </div>
+      <div className={styles.card__footer}>
+        {new Date(article.createdAt).toLocaleDateString()}
       </div>
     </div>
   );

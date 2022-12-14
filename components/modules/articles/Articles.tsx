@@ -13,7 +13,7 @@ const Articles = ({ articles }: Props) => {
       <h1>記事一覧</h1>
       <ul className={styles.cards}>
         {articles.contents?.map((article) => (
-          <li className="cards_item" key={article.id}>
+          <li className={styles.cards_item} key={article.id}>
             <ArticleCard article={article} />
           </li>
         ))}
