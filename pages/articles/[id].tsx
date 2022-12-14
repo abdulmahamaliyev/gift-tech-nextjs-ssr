@@ -32,7 +32,7 @@ interface PageProps {
 
 export const getServerSideProps: GetServerSideProps<PageProps> =
   async function getServerSideProps(ctx) {
-    const { id } = ctx.params;
+    const id = ctx.params?.id;
 
     const res = await fetch(`${process.env.API_URL!}/${id}`, {
       method: 'GET',
