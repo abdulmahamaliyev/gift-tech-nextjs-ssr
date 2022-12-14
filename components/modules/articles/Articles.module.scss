@@ -1,12 +1,40 @@
-.articles {
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: row;
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+  }
+  img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .cards_item {
+      display: flex;
+      padding: 1rem;
+    }
+  }
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
 }

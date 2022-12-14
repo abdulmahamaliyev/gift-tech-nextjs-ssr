@@ -9,13 +9,15 @@ type Props = {
 
 const Articles = ({ articles }: Props) => {
   return (
-    <div className={styles.container}>
-      記事一覧
-      <div className={styles.articles}>
+    <div className={styles.main}>
+      <h1>記事一覧</h1>
+      <ul className={styles.cards}>
         {articles.contents?.map((article) => (
-          <ArticleCard key={article.id} article={article} />
+          <li className="cards_item" key={article.id}>
+            <ArticleCard article={article} />
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

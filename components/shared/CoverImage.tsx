@@ -14,8 +14,6 @@ const CoverImage: FC<ICardCover> = ({ image }) => (
     }
     alt="card__image"
     style={{ maxWidth: '100%', display: 'block', objectFit: 'contain' }}
-    // fill
-
     height={image.height || 1179}
     width={image.width || 1920}
   />
