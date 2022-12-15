@@ -6,9 +6,11 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import styles from './ArticleCard.module.scss';
 
-type Props = { article: ArticleContents };
+export interface IArticleCard {
+  article: ArticleContents;
+}
 
-const ArticleCard = ({ article }: Props) => {
+const ArticleCard: React.FC<IArticleCard> = ({ article }) => {
   const router = useRouter();
 
   return (
