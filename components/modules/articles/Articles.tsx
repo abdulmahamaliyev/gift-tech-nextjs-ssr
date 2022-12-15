@@ -1,15 +1,15 @@
 import ArticleCard from '@/components/cards/article/ArticleCard';
-import { Articles } from '@/types';
+import { Articles as ArticlesData } from '@/types';
 import { useRouter } from 'next/router';
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import styles from './Articles.module.scss';
 
-type Props = {
-  articles: Articles;
-};
+export interface IArticles {
+  articles: ArticlesData;
+}
 
-const Articles = ({ articles }: Props) => {
+const Articles: React.FC<IArticles> = ({ articles }) => {
   const router = useRouter();
 
   return (

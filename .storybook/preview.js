@@ -1,7 +1,8 @@
 import * as NextImage from 'next/image';
-import '../styles/globals.scss';
-import { RouterContext } from 'next/dist/shared/lib/router-context';
-import { withNextRouter } from 'storybook-addon-next-router';
+// import '../styles/globals.scss';
+import '!style-loader!css-loader!sass-loader!../styles/globals.scss';
+
+import { RouterContext } from 'next/dist/shared/lib/router-context'; // next 12
 
 const BREAKPOINTS_INT = {
   xs: 375,
@@ -35,8 +36,6 @@ Object.defineProperty(NextImage, 'default', {
   value: (props) => <OriginalNextImage {...props} unoptimized />,
 });
 
-export const decorators = [withNextRouter];
-
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -47,6 +46,7 @@ export const parameters = {
   },
   nextRouter: {
     Provider: RouterContext.Provider,
+    // foo: 'this-is-a-global-override',
   },
   viewport: { viewports: customViewports },
 };

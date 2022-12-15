@@ -8,18 +8,25 @@ module.exports = {
     '../**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-actions',
-    '@storybook/preset-scss',
+    '@storybook/addon-links',
+    // '@storybook/addon-actions',
+    'storybook-addon-next-router',
+    'storybook-addon-next',
     '@storybook/addon-interactions',
+    // '@storybook/preset-scss',
   ],
   framework: '@storybook/react',
   module: {
     rules: [
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader?url=false', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        include: path.resolve(__dirname, '../'),
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
         include: path.resolve(__dirname, '../'),
       },
 
@@ -30,6 +37,7 @@ module.exports = {
       },
     ],
   },
+
   core: {
     builder: '@storybook/builder-webpack5',
   },

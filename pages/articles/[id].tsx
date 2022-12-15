@@ -1,3 +1,4 @@
+import ArticleDetail from '@/components/article_detail/ArticleDetail';
 import CoverImage from '@/components/shared/CoverImage';
 import { ArticleContents } from '@/types';
 import { GetServerSideProps, NextPage } from 'next';
@@ -5,23 +6,7 @@ import Link from 'next/link';
 
 const Index: NextPage<PageProps> = ({ article }) => {
   console.log(article);
-  return (
-    <>
-      <section>
-        <CoverImage image={article.image} />
-        <h4>{article.title}</h4>
-        <h6>{article.createdAt}</h6>
-        <div
-          // className={styles.card__body}
-          dangerouslySetInnerHTML={{
-            __html: article.body,
-          }}
-        />
-
-        <Link href={'/articles'}>一覧へ戻る</Link>
-      </section>
-    </>
-  );
+  return article ? <ArticleDetail article={article} /> : <h1>404 not found</h1>;
 };
 
 export default Index;
