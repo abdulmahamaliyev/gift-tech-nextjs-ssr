@@ -10,7 +10,7 @@
     "tsc": "tsc",
     "prettier": "prettier --write .",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o docs-build"
   },
   "dependencies": {
     "@types/node": "18.11.13",
