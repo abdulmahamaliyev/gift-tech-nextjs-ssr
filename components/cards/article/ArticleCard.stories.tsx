@@ -1,13 +1,14 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentMeta, ComponentStory, Story } from '@storybook/react';
 import ArticleCard, { IArticleCard } from './ArticleCard';
 import { mockArticleCardProps } from './ArticleCard.mocks';
+// import { withNextRouter } from 'storybook-addon-next-router';
 
 export default {
-  name: 'Base',
   title: 'templates/ArticleCard',
   component: ArticleCard,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
+  // decorators: [withNextRouter, (Story: Story) => <Story />],
 } as ComponentMeta<typeof ArticleCard>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -22,4 +23,13 @@ Base.args = {
   ...mockArticleCardProps.base,
 } as IArticleCard;
 
-// Base.name = 'templates-articlecard--base';
+Base.parameters = {
+  nextRouter: {
+    path: '/articles/[id]',
+    asPath: '/articles',
+
+    // query: {
+    //   page: '1',
+    // },
+  },
+};
