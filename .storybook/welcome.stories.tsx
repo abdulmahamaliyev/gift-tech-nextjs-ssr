@@ -8,7 +8,7 @@ stories.add('Welcome', () => (
     <h1>Article Cards</h1>
 
     <p>
-      Welcome to the <strong>Article Cards</strong> docs.
+      <strong>Article Cards</strong>のドキュメンテーションへようこそ.
     </p>
   </div>
 ));
